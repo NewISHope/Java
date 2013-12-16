@@ -1,0 +1,39 @@
+cls
+set SERVICE_NAME=NewISHope
+set PR_DESCRIPTION=New IS Hope service example
+set PR_INSTALL="C:\temp\prunsrv.exe"
+set PR_DISPLAYNAME=New IS Hope display text
+ 
+REM Service log configuration
+set PR_LOGPREFIX=%SERVICE_NAME%
+set PR_LOGPATH=c:\temp
+set PR_STDOUTPUT=c:\temp\stdout.txt
+set PR_STDERROR=c:\temp\stderr.txt
+set PR_LOGLEVEL=ERROR
+ 
+REM Path to java installation
+set PR_JVM=C:\Program Files\Java\jre7\bin\client\jvm.dll
+set PR_CLASSPATH=C:\Temp\NewsdeployJAR.jar
+ 
+REM Startup configuration
+set PR_STARTUP=auto
+set PR_STARTMODE=jvm
+set PR_STARTCLASS=com.triskellcat.NewsdeployPkg.Newsdeployclass
+set PR_STARTMETHOD=start
+
+REM Shutdown configuration
+set PR_STOPMODE=jvm
+set PR_STOPCLASS=com.triskellcat.NewsdeployPkg.Newsdeployclass
+set PR_STOPMETHOD=stop
+ 
+REM JVM configuration
+set PR_JVMMS=256
+set PR_JVMMX=1024
+set PR_JVMSS=4000
+
+echo DESINSTAL·LANT:
+c:\temp\prunsrv.exe //DS//%SERVICE_NAME%
+ECHO INSTAL·LANT:
+c:\temp\prunsrv.exe //IS//%SERVICE_NAME%
+echo CONFIGURATION EDITOR:
+c:\temp\prunmgr.exe //ES//%SERVICE_NAME%
